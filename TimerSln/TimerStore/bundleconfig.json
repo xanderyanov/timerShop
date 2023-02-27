@@ -1,0 +1,82 @@
+[
+  {
+    "outputFileName": "wwwroot/btlassets/js/main.js",
+    "inputFiles": [
+      "js/btl/__globalVar.js",
+      "js/btl/__actions.js",
+      "js/btl/__dropper.js",
+      "js/btl/__bottomAdaptiveMenu.js",
+      "js/btl/__callBack.js",
+      "js/btl/__comments.js",
+      "js/btl/__eCart.js",
+      "js/btl/__eCartOrderProcess.js",
+      "js/btl/__efilter.js",
+      "js/btl/__eSearch.js",
+      "js/btl/__eShopCabinet.js",
+      "js/btl/__form.js",
+      "js/btl/__jsFilter.js",
+      "js/btl/__specialist.js",
+      "js/btl/__index.js",
+      "js/btl/__price.js",
+      "js/btl/__layout.js",
+      "js/btl/__catalogPage.js",
+      "js/btl/__procedure.js",
+      "js/btl/__btlGoods.js",
+      "js/btl/__portfolio.js",
+      "js/btl/__resize.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/btlassets/js/vendors.js",
+    "inputFiles": [
+      "vendors/jquery.min.js",
+      "vendors/bootstrap.min.js",
+      "vendors/jquery.fancybox.min.js",
+      "vendors/jquery.maskedinput.js",
+      "vendors/nouislider.min.js",
+      "vendors/sweetalert.min.js",
+      "vendors/swiper-bundle.min.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/btlassets/css/vendors.css",
+    "inputFiles": [
+      "vendors/sweetalert.css",
+      "vendors/nouislider.min.css",
+      "vendors/swiper-bundle.min.css",
+      "vendors/jquery.fancybox.min.css",
+      "vendors/bootstrap.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/assets/css/vendors.css",
+    "inputFiles": [
+      "vendors/sweetalert.css",
+      "vendors/nouislider.min.css",
+      "vendors/swiper.css",
+      "vendors/jquery.fancybox.min.css",
+      "vendors/bootstrap.min.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/assets/js/vendors.min.js",
+    "inputFiles": [
+      "vendors/jquery.min.js",
+      "vendors/jquery.fancybox.min.js",
+      "vendors/jquery.maskedinput.js",
+      "vendors/sweetalert.min.js",
+      "vendors/swiper.min.js",
+      "js/tcmir/js/bootstrap.min.js"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/assets/js/main.js",
+    "inputFiles": [
+      "js/tcmir/js/acceptcookie.js",
+      "js/tcmir/js/main.js",
+      "js/tcmir/js/resize.js",
+      "js/tcmir/js/slider.js"
+      
+    ]
+  }
+]
