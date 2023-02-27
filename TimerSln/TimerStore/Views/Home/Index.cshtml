@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+    var SaleLeader = Model.Where(x => x.FlagSaleLeader);
+    var NewTovar = Model.Where(x => x.FlagNew);
+
+}
+
+<div class="wrapper">
+    <div class="container-fluid container-xl">
+        <div class="row py-2 catalog__area">
+            <div class="col-12">
+                <h2>Лидеры продаж</h2>
+                <div class="catalog catalog_wide">
+                    @foreach (var p in NewTovar) {
+                        <partial name="Partials/ProductSummary" model="p" />
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
