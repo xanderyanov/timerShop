@@ -3,8 +3,15 @@
   "defaultProvider": "cdnjs",
   "libraries": [
     {
+      "provider": "cdnjs",
       "library": "bootstrap@5.2.3",
-      "destination": "wwwroot/lib/bootstrap"
+      "destination": "wwwroot/lib/bootstrap/"
     }
-  ]
+  ,
+{
+  "provider": "unpkg",
+  "library": "bootstrap@5.2.3",
+  "destination": "wwwroot/lib/bootstrap/"
+}
+]
 }

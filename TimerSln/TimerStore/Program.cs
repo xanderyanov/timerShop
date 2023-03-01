@@ -30,19 +30,19 @@ app.UseRouting();
 app.UseEndpoints(endpoints =>
 {
 
-    //endpoints.MapControllerRoute("route1",
-    //   "Product/{id?}",
-    //   new { controller = "Product", action = "Index" });
+    endpoints.MapControllerRoute("Product",
+       "Product/{id?}",
+       new { controller = "Product", action = "Index" });
 
     //endpoints.MapControllerRoute("Admin",
     //       "Admin/{action}/{id?}",
     //       new { controller = "Admin", action = "Index" });
 
-    //endpoints.MapControllerRoute("Brand",
-    //        "Brand/{id?}",
-    //        new { controller = "Catalog", action = "Brand" });
+    endpoints.MapControllerRoute("Brand",
+            "Brand/{id?}",
+            new { controller = "Catalog", action = "Brand" });
 
-    endpoints.MapControllerRoute("route2",
+    endpoints.MapControllerRoute("Home",
        "{controller}/{action}/{id?}",
        new { controller = "Home", action = "Index" });
 

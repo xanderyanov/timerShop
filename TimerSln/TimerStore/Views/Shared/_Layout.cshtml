@@ -15,9 +15,17 @@
     <div class="bg-dark text-white p-2">
         <span class="navbar-brand ml-2">Timer Store</span>
     </div>
+    <div class="container">
+        <header class="d-flex justify-content-center py-3">
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная</a></li>
+                <li class="nav-item"><a href="/Catalog" class="nav-link">Каталог</a></li>
+            </ul>
+        </header>
+    </div>
     <div class="row m-1 p-1">
         <div id="categories" class="col-3">
-            Put something useful here later
+            <vc:navigation-menu product="new Product()" />
         </div>
         <div class="col-9">
             @RenderBody()

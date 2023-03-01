@@ -13,16 +13,18 @@ namespace TimerStore.Controllers
 
             IEnumerable<Product> Products = Data.ExistingTovars;
 
+            IEnumerable<Product> filteredProducts = Products.Where(x => x.FlagSaleLeader);
+
             return View(new ProductsListViewModel
             {
-                Products = Products
+                Products = filteredProducts
                     .Skip((productPage - 1) * PageSize)
                     .Take(PageSize),
                 PagingInfo = new PagingInfo
                     {
                         CurrentPage = productPage,
                         ItemsPerPage = PageSize,
-                        TotalItems = Products.Count()
+                        TotalItems = filteredProducts.Count()
                     }
                 //CurrentCategory = id
             });

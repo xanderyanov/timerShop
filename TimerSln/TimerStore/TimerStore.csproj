@@ -12,4 +12,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Product\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
 </Project>
