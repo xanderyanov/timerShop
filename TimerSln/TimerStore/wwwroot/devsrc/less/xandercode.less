@@ -1,0 +1,49 @@
+:root {
+	--color1: #5085A5;
+	--color2: #31708E;
+	--color3: #8FC1E3;
+	--color4: #687864;
+	--color5: #F7F9FB;
+}
+
+.grayscale {
+	filter: grayscale(100%);
+}
+
+.stop {
+	overflow: hidden;
+}
+
+.visible {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+.clearfix::after {
+	content: "";
+	clear: both;
+	display: block;
+}
+
+.xScroll {
+	overflow-y: scroll;
+	padding: 0 10px 0 0;
+}
+
+.xScroll::-webkit-scrollbar-track {
+	border-radius: 8px;
+	background-color: transparent;
+}
+
+.xScroll::-webkit-scrollbar {
+	width: 0.25rem;
+	height: 0.25rem;
+	/* background-color: var(--color1); */
+	background-color: transparent;
+}
+
+.xScroll::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	/* background-color: #f6e5e4; */
+	background: rgba(173, 136, 184, 0.35);
+}

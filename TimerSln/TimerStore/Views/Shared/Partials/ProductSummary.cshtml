@@ -2,28 +2,29 @@
 
 @if (string.IsNullOrEmpty(Model.ImgFileName)) { Model.ImgFileName = "logo1.png"; }
 
-<a class="catalog__item" href="/Product/@Model.Id.ToString()" >
-    <div class="catalog__itemImg">
-        <div class="catalog__itemImgInner">
+<div class="catalogItem__outer col-6 col-md-4 col-lg-3 col-xl-2">
+    <a class="catalogItem" href="/Product/@Model.Id.ToString()">
+        <div class="catalogItem__img">
             <img src="https://mirchasov64.ru/uploads/aaaclock/@Model.ImgFileName" alt="@Model.BrandName" />
         </div>
-        @if (Model.Discount > 0) {
-            <div class="catalog__itemDiscount">@Model.Discount %</div>
-        }
-        @if (Model.FlagNew) {
-            <div class="catalog__itemNew">New</div>
-        }
-        @if (Model.FlagSaleLeader) {
-            <div class="catalog__itemNew">Hot</div>
-        }
-
-    </div>
-    <div class="catalog__itemTitle">@Model.Name</div>
-    <div class="catalog__itemPrice">
-        @if (Model.Discount > 0) {
-            <div class="catalog__itemPrice_old">@Model.Price</div>
-        }
-        <div class="catalog__itemPrice_current">@Model.DiscountPrice ₽</div>
-
-    </div>
-</a>
+        <div class="catalogItem__flags">
+            @if (Model.Discount > 0) {
+                <div class="catalogItem__flagDiscount">@Model.Discount %</div>
+            }
+            @if (Model.FlagNew) {
+                <div class="catalogItem__flagNew">New</div>
+            }
+            @if (Model.FlagSaleLeader) {
+                <div class="catalogItem__flagSale">Hot</div>
+            }
+        </div>
+        <div class="catalogItem__title">@Model.Name</div>
+        <div class="catalogItem__price">
+            @if (Model.Discount > 0) {
+                <div class="catalogItem__price_old">@Model.Price</div>
+            }
+            <div class="catalogItem__price_current">@Model.DiscountPrice ₽</div>
+        </div>
+    </a>
+    
+</div>
