@@ -12,22 +12,21 @@
     <link rel="stylesheet" href="/assets/css/style.css" asp-append-version="true" />
 </head>
 <body>
-    <div class="bg-dark text-white p-2">
-        <span class="navbar-brand ml-2">Timer Store</span>
-    </div>
-    <div class="container">
-        <header class="d-flex justify-content-center py-3">
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная</a></li>
-                <li class="nav-item"><a href="/Catalog" class="nav-link">Каталог</a></li>
-            </ul>
-        </header>
-    </div>
-    <div class="row m-1 p-1">
-        <div id="categories" class="col-3">
-            <vc:navigation-menu product="new Product()" />
+    <div class="layout container">
+        <div class="row">
+            <div class="bg-dark text-white p-2">
+                <span class="navbar-brand ml-2">Timer Store</span>
+            </div>
         </div>
-        <div class="col-9">
+        <div class="row">
+            <header class="d-flex justify-content-center py-3">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="/" class="nav-link active" aria-current="page">Главная</a></li>
+                    <li class="nav-item"><a href="/Catalog" class="nav-link">Каталог</a></li>
+                </ul>
+            </header>
+        </div>
+        <div class="row m-1 p-1">
             @RenderBody()
         </div>
     </div>

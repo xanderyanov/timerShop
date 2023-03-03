@@ -9,7 +9,7 @@
   {
     "outputFileName": "wwwroot/assets/js/vendors.js",
     "inputFiles": [
-      "vendors/jquery.min.js",
+      "wwwroot/lib/jquery/dist/jquery.js",
       "wwwroot/lib/bootstrap/js/bootstrap.min.js"
 
     ]

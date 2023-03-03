@@ -2,7 +2,7 @@
 
 @if (string.IsNullOrEmpty(Model.ImgFileName)) { Model.ImgFileName = "logo1.png"; }
 
-<div class="catalogItem__outer col-6 col-md-4 col-lg-3 col-xl-2">
+<div class="catalogItem__outer col-6 col-md-4 col-lg-3 col-xl-2" id="@Model.Id">
     <a class="catalogItem" href="/Product/@Model.Id.ToString()">
         <div class="catalogItem__img">
             <img src="https://mirchasov64.ru/uploads/aaaclock/@Model.ImgFileName" alt="@Model.BrandName" />
@@ -19,6 +19,9 @@
             }
         </div>
         <div class="catalogItem__title">@Model.Name</div>
+        <div class="catalogItem__info">@Model.Gender</div>
+        <div class="catalogItem__info">@Model.CaseForm</div>
+        <div class="catalogItem__info">@Model.Glass</div>
         <div class="catalogItem__price">
             @if (Model.Discount > 0) {
                 <div class="catalogItem__price_old">@Model.Price</div>

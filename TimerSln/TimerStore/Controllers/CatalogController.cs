@@ -39,7 +39,7 @@ namespace TimerStore.Controllers
             Products = Products
                 .Where(p => id == null || p.BrandName == id);
 
-            //Filter.CollectPageFilterValues(Products);
+            Filter.CollectPageFilterValues(Products);
 
             Products = Products
                 .Skip((productPage - 1) * PageSize)
@@ -78,7 +78,7 @@ namespace TimerStore.Controllers
 
             IEnumerable<Product> Products = Data.ExistingTovars;
 
-            //Filter.CollectPageFilterValues(Products);
+            Filter.CollectPageFilterValues(Products);
 
             Products = Products
                 .Skip((productPage - 1) * PageSize)

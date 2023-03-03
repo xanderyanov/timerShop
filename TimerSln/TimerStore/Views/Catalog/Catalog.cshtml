@@ -1,12 +1,120 @@
-﻿@*@using static TimerStore.BaseController*@
+﻿@using static TimerStore.BaseController
 @model ProductsListViewModel
 
 @{
     ViewData["Title"] = "Home Page";
+    ViewSettingsClass viewSettings = ViewBag.ViewSettings as ViewSettingsClass;
 }
 
+<script>
 
-<div class="col-12">
+    $(function () {
+        $(".layout")
+        .change(function (ev) {
+            var cb = ev.target;
+            var $cb = $(cb);
+            if ($cb.is("input.myFilter[data-id]")) {
+                applyFilters();
+                return;
+            }
+        })
+        .click(function (ev) {
+            $this = $(ev.target);
+            if ($this.is(".JS_Filters_run")) {
+                applyFilters();
+                return;
+            }
+        });
+    });
+
+    
+
+
+    var NoFilterURL = window.location.href;
+
+    function collectIds(idElems) {
+        var result = "";
+        for (var i = 0; i < idElems.length; i++) {
+            if (idElems[i].checked) {
+                var idparts = $(idElems[i]).data("id").replace(" ", "_");
+                console.log("checked - " + idparts);
+                if (result !== "") result += ",";
+                result += idparts;
+
+            }
+        }
+        return result;
+    }
+
+    function applyFilters() {
+        var params = collectIds($("input[data-val='filter']"));
+
+        console.log("params - " + params);
+
+        var newUrl = NoFilterURL + "?f=" + params;
+
+        console.log("NoFilterURL - " + newUrl);
+
+        window.location.href = newUrl;
+    }
+
+</script>
+
+<div id="categories" class="col-3">
+    <vc:navigation-menu product="new Product()" />
+
+    @if (Filter.AllGenders != null) {
+        <ul class="mb-2">
+            @foreach (var i in Filter.AllGenders) {
+                if (i == "") continue;
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input myFilter" type="checkbox" value="" id="" data-id="@i" data-val="filter">
+                        <label class="form-check-label" for="">
+                            @i
+                        </label>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+
+    @if (Filter.AllCaseForm != null) {
+        <ul class="mb-2">
+            @foreach (var i in Filter.AllCaseForm) {
+                if (i == "") continue;
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input myFilter" type="checkbox" value="" id="" data-id="@i" data-val="filter">
+                        <label class="form-check-label" for="">
+                            @i
+                        </label>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+
+    @if (Filter.AllGlass != null) {
+        <ul class="mb-2">
+            @foreach (var i in Filter.AllGlass) {
+                if (i == "") continue;
+                <li>
+                    <div class="form-check">
+                        <input class="form-check-input myFilter" type="checkbox" value="" id="" data-id="@i" data-val="filter">
+                        <label class="form-check-label" for="">
+                            @i
+                        </label>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+
+    <div class="btn btn-primary JS_Filters_run">Показать результаты</div>
+</div>
+
+<div class="col-9">
     <h2>@Model.CurrentCategory</h2>
     <div class="catalog catalog_wide row">
         @foreach (var p in Model.Products ?? Enumerable.Empty<Product>()) {
@@ -23,5 +131,6 @@
         </div>
     </div>
 </div>
+
 
 
