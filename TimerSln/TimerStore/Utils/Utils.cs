@@ -1,4 +1,6 @@
-﻿namespace TimerStore
+﻿using System.Text;
+
+namespace TimerStore
 {
     internal class StrUtils
     {
@@ -38,4 +40,16 @@
             return List;
         }
     }
+
+    public static class Base64Fix
+    {
+        public static string Tuda(string s) 
+        {
+            return Convert.ToBase64String(Encoding.UTF8.GetBytes(s)).Replace('+', '-').Replace('/', '_').Replace('=', '*');
+        }
+        public static string Obratno(string s) { 
+            return Encoding.UTF8.GetString(Convert.FromBase64String(s.Replace('-', '+').Replace('_', '/').Replace('*', '=')));
+        }
+    }
 }
+

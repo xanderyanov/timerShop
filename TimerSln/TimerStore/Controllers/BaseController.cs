@@ -28,6 +28,8 @@ public class BaseController : Controller
         public bool SaleLeaderOnly { get; set; } = false;
         public string InexpensivePrice { get; set; }
 
+        public Dictionary<string, List<string>> CheckedFilters { get; set; } = new();
+
     }
 }
 

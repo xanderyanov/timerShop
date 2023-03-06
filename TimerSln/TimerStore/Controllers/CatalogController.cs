@@ -3,12 +3,16 @@ using MongoDB.Driver;
 using System.Text;
 using Newtonsoft.Json;
 using TimerStore.Models.ViewModels;
+using System.Reflection;
+using Amazon.Runtime.Internal.Transform;
 
 namespace TimerStore.Controllers
 {
     public class CatalogController : BaseController
     {
         public int PageSize = 16;
+
+        
 
         public IActionResult Brand(string id, int productPage = 1, string viewSettingsStr = null)
         {
@@ -58,8 +62,11 @@ namespace TimerStore.Controllers
                 CurrentCategory = id
             });
         }
-        public IActionResult Index(string id, int productPage = 1, string viewSettingsStr = null)
+
+        //public Dictionary<string, string> CheckedFilters = new();
+        public IActionResult Index(string id, int productPage, string viewSettingsStr, string filter)
         {
+            if (productPage == 0) productPage = 1;
 
             ViewSettingsClass viewSettings = null;
             try {
@@ -80,7 +87,36 @@ namespace TimerStore.Controllers
 
             Filter.CollectPageFilterValues(Products);
 
-            Products = Products
+            // ?f_Case=Прямоуг&f_Case=Овал&f_Gender=Male&f_Gender=Uni
+            // Key: f_Case
+            // Value: { "Прямоуг", "Овал" }
+            // Key: f_Gender
+            // Value: { "Male", "Uni" }
+
+            //public string propertyName;
+            //public string propertyName;
+
+            IEnumerable<Product> productSource = Data.ExistingTovars;
+            
+            foreach (var pair in Request.Query) {
+                string filterKey = pair.Key;
+                if (filterKey.StartsWith("f_")) {
+                    string propName = filterKey[2..];
+                    var values = pair.Value;
+                    PropertyInfo PI = typeof(Product).GetProperty(propName);
+                    if (PI != null) {
+                        List<string> decodedValues = values.Select(x => Base64Fix.Obratno(x)).ToList();
+                        viewSettings.CheckedFilters.Add(propName, decodedValues);
+                        List<Product> thisStepProds = productSource.Where(x => decodedValues.Contains(PI.GetValue(x) as string)).ToList();
+                        productSource = thisStepProds;
+                    }
+                }
+            }
+
+
+            //filter = Request.Query["f"];
+
+            Products = productSource
                 .Skip((productPage - 1) * PageSize)
                 .Take(PageSize);
 
