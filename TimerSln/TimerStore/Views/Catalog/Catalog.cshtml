@@ -26,14 +26,8 @@
                 return;
             }
         });
-
-        //selectedFilters();
     });
 
-    
-    //function selectedFilters(){
-    //    var selectedF = @viewSettings.CheckedFilters;
-    //}
 
 
     var NoFilterURL = window.location.href;
@@ -66,8 +60,10 @@
 <div id="categories" class="col-3">
     <vc:navigation-menu product="new Product()" />
 
-    @if (Filter.AllGenders != null) {
-        if (viewSettings.CheckedFilters.ContainsKey("Genders")) { var checkedValues = viewSettings.CheckedFilters["Genders"]; }
+    @*@if (Filter.AllGenders != null) {
+        var checkedValues = new List<string>();
+        bool keyExists = viewSettings.CheckedFilters.ContainsKey("Gender");
+        if (keyExists == true) { checkedValues = viewSettings.CheckedFilters["Gender"]; }
         <ul class="mb-2">
             @foreach (var i in Filter.AllGenders) {
                 if (i == "") continue;
@@ -84,7 +80,9 @@
     }
 
     @if (Filter.AllCaseForm != null) {
-        if (viewSettings.CheckedFilters.ContainsKey("CaseForm")) { var checkedValues = viewSettings.CheckedFilters["CaseForm"]; }
+        var checkedValues = new List<string>();
+        bool keyExists = viewSettings.CheckedFilters.ContainsKey("CaseForm");
+        if (keyExists == true) { checkedValues = viewSettings.CheckedFilters["CaseForm"]; }
         <ul class="mb-2">
             @foreach (var i in Filter.AllCaseForm) {
                 if (i == "") continue;
@@ -101,7 +99,9 @@
     }
 
     @if (Filter.AllGlass != null) {
-        var checkedValues = viewSettings.CheckedFilters["Glass"] ?? null;
+        var checkedValues = new List<string>();
+        bool keyExists = viewSettings.CheckedFilters.ContainsKey("Glass");
+        if (keyExists == true) { checkedValues = viewSettings.CheckedFilters["Glass"]; }
         <ul class="mb-2">
             @foreach (var i in Filter.AllGlass) {
                 if (i == "") continue;
@@ -115,7 +115,7 @@
                 </li>
             }
         </ul>
-    }
+    }*@
 
     <div class="btn btn-primary JS_Filters_run">Показать результаты</div>
 </div>
